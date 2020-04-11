@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from './components/Header/Header';
+import LazyLoader from './components/LazyLoader/LazyLoader';
+import './App.scss';
+
+const MediumClapPage = React.lazy(() => import('./pages/MediumClapPage/MediumClapPage'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <Header />
+      <Switch>
+        <Route exact path="/" component={LazyLoader(MediumClapPage)} />
+      </Switch>
+  </Router>
   );
 }
 
