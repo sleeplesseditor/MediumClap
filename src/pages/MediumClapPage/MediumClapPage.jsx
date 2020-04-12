@@ -1,6 +1,5 @@
 import React from 'react';
 import './MediumClapPage.scss';
-
 import DefaultClap from '../../components/MediumClap/DefaultClap';
 
 const MediumClapPage = () => {
