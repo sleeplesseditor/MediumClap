@@ -12,7 +12,7 @@ const MediumClapPage = () => {
         </div>
         <div className="clap-container-card">
           <h1 className="clap-container-card-heading-after">After</h1>
-          <DefaultClap />
+          {/* <DefaultClap /> */}
         </div>
       </div>
     </div>
