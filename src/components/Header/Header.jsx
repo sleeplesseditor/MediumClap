@@ -54,7 +54,7 @@ export default function Header() {
             style={{ textDecoration: 'none' }}
             onClick={toggleNav}
           >
-            Medium Clap Page
+            Custom Hooks Page
           </Link>
         </nav>
       </CSSTransition>
