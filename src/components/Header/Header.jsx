@@ -56,6 +56,13 @@ export default function Header() {
           >
             Custom Hooks Page
           </Link>
+          <Link 
+            to={"/compound-component"}
+            style={{ textDecoration: 'none' }}
+            onClick={toggleNav}
+          >
+            Compound Component Page
+          </Link>
         </nav>
       </CSSTransition>
       <button onClick={toggleNav} className="header-button">
