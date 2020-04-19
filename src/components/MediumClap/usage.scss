@@ -1,0 +1,26 @@
+.darkTotal {
+  color: white;
+  background: #896eaf;
+}
+
+/* count */
+.darkCount {
+  background: #896eaf;
+}
+
+.darkIcon {
+  stroke: #896eaf;
+
+  &.checked {
+    fill: #896eaf;
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+}
+
+.darkClap {
+  border: 1px solid #896eaf;
+  &:hover {
+    border: 1px solid #896eaf;
+  }
+}

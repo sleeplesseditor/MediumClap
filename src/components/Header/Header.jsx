@@ -63,6 +63,13 @@ export default function Header() {
           >
             Compound Component Page
           </Link>
+          <Link 
+            to={"/styles-prop"}
+            style={{ textDecoration: 'none' }}
+            onClick={toggleNav}
+          >
+            Styles Prop Page
+          </Link>
         </nav>
       </CSSTransition>
       <button onClick={toggleNav} className="header-button">
