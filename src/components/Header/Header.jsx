@@ -70,6 +70,20 @@ export default function Header() {
           >
             Styles Prop Page
           </Link>
+          <Link 
+            to={"/control-props"}
+            style={{ textDecoration: 'none' }}
+            onClick={toggleNav}
+          >
+            Control Props Page
+          </Link>
+          <Link 
+            to={"/foundation-hooks"}
+            style={{ textDecoration: 'none' }}
+            onClick={toggleNav}
+          >
+            Control Props Page
+          </Link>
         </nav>
       </CSSTransition>
       <button onClick={toggleNav} className="header-button">
