@@ -82,7 +82,7 @@ export default function Header() {
             style={{ textDecoration: 'none' }}
             onClick={toggleNav}
           >
-            Control Props Page
+            Foundation Hooks Page
           </Link>
         </nav>
       </CSSTransition>
