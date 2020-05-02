@@ -1,4 +1,6 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react';
+import React, { 
+  useCallback, useEffect, useLayoutEffect, useRef, useState 
+} from 'react';
 import mojs from 'mo-js';
 import './MediumClap.scss';
 
@@ -121,6 +123,17 @@ const useClapState = (initialState = INITIAL_STATE) => {
   return [clapState, updateClapState]
 }
 
+const useEffectAfterMount = (callback, dependency) => {
+  const componentJustMounted = useRef(true)
+
+  useEffect(() => {
+    if(!componentJustMounted.current) {
+      return callback()
+    }
+    componentJustMounted.current = false;
+  }, dependency)
+}
+
 const CustomHooksClap = () => {
   const [clapState, updateClapState] = useClapState();
   const { count, countTotal, isClicked } = clapState;
@@ -131,14 +144,13 @@ const CustomHooksClap = () => {
     clapTotalEl: clapTotalRef
   });
 
-  const handleClapClick = () => {
+  useEffectAfterMount(() => {
     animationTimeline.replay()
-    updateClapState()
-  }
+  }, [count])
 
   return (
     <div className="clap-container-card-content">
-      <button ref={setRef} data-refkey="clapRef" className="clap" onClick={handleClapClick}>
+      <button ref={setRef} data-refkey="clapRef" className="clap" onClick={updateClapState}>
         <ClapIcon isClicked={isClicked} />
         <ClapCount count={count} setRef={setRef} />
         <CountTotal countTotal={countTotal} setRef={setRef} />
