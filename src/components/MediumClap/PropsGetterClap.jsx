@@ -108,6 +108,10 @@ const useDOMRef = () => {
   return [DOMRef, setRef]
 }
 
+const callFnsInSequence = ( ...fns) => (...args) => {
+  fns.forEach(fn => fn && fn(...args))
+}
+
 const useClapState = (initialState = INITIAL_STATE) => {
   const MAXIMUM_USER_CLAP = 50;
   const [clapState, setClapState] = useState(initialState);
@@ -121,19 +125,21 @@ const useClapState = (initialState = INITIAL_STATE) => {
     }))
   }, [])
 
-  const clickProps = {
-    onClick: updateClapState,
-    'aria-pressed': clapState.isClicked
-  }
+  const getClickProps = ({ onClick, ...otherProps} = {}) => ({
+    onClick: callFnsInSequence(updateClapState, onClick),
+    'aria-pressed': clapState.isClicked,
+    ...otherProps
+  })
 
-  const countProps = {
+  const getCountProps = ({ ...otherProps } = {}) => ({
     count,
     'aria-valuemax': MAXIMUM_USER_CLAP,
     'aria-valuemin': 0,
-    'aria-valuenow': count
-  }
+    'aria-valuenow': count,
+    ...otherProps
+  })
 
-  return {clapState, updateClapState, clickProps, countProps}
+  return {clapState, updateClapState, getClickProps, getCountProps}
 }
 
 const useEffectAfterMount = (callback, dependency) => {
@@ -187,7 +193,7 @@ const CountTotal = ({ countTotal, setRef, ...restProps }) => {
 }
 
 const Usage = () => {
-  const {clapState, updateClapState, clickProps, countProps} = useClapState();
+  const {clapState, getClickProps, getCountProps} = useClapState();
   const { count, countTotal, isClicked } = clapState;
   const [{clapRef, clapCountRef, clapTotalRef}, setRef] = useDOMRef();
   const animationTimeline = useClapAnimation({
@@ -200,12 +206,31 @@ const Usage = () => {
     animationTimeline.replay()
   }, [count])
 
+  const handleClick = () => {
+    console.log('A CLICK HAPPENED')
+  }
+
   return (
     <div className="clap-container-card-content">
-      <ClapContainer setRef={setRef} {...clickProps} data-refkey="clapRef" >
+      <ClapContainer 
+        setRef={setRef}
+        data-refkey="clapRef"
+        {...getClickProps({
+          onClick: handleClick,
+          'aria-pressed': false
+        })} 
+      >
         <ClapIcon isClicked={isClicked} />
-        <ClapCount setRef={setRef} {...countProps} data-refkey="clapCountRef" />
-        <CountTotal countTotal={countTotal} setRef={setRef} data-refkey="clapTotalRef"/>
+        <ClapCount 
+          setRef={setRef}
+          data-refkey="clapCountRef"
+          {...getCountProps()} 
+        />
+        <CountTotal 
+          countTotal={countTotal} 
+          setRef={setRef} 
+          data-refkey="clapTotalRef"
+        />
       </ClapContainer>
     </div>
   )

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../MediumClapPage.scss';
 import DefaultClap from '../../components/MediumClap/DefaultClap';
+import PropsGetterClap from '../../components/MediumClap/PropsGetterClap';
 
 const PropsGetterPage = () => {
   return (
@@ -14,6 +15,7 @@ const PropsGetterPage = () => {
           </div>
           <div className="clap-container-card">
             <h1 className="clap-container-card-heading-after">After</h1>
+            <PropsGetterClap />
           </div>
         </div>
       </div>
