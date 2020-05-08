@@ -4,6 +4,23 @@
   margin-top: 7rem;
 }
 
+.clap-message {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  &-link{
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      color: #a1a1a1;
+    }
+  }
+}
+
 .clap-container {
   display: flex;
   justify-content: center;

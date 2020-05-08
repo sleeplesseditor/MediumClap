@@ -10,6 +10,7 @@ const StylesPropPage = React.lazy(() => import('./pages/StylesPropPage/StylesPro
 const ControlPropsPage = React.lazy(() => import('./pages/ControlPropsPage/ControlPropsPage'));
 const FoundationHooksPage = React.lazy(() => import('./pages/FoundationHooksPage/FoundationHooksPage'));
 const PropsCollectionPage = React.lazy(() => import('./pages/PropsCollectionPage/PropsCollectionPage'));
+const PropsGetterPage = React.lazy(() => import('./pages/PropsGetterPage/PropsGetterPage'));
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/control-props" component={LazyLoader(ControlPropsPage)} />
         <Route exact path="/foundation-hooks" component={LazyLoader(FoundationHooksPage)} />
         <Route exact path="/props-collection" component={LazyLoader(PropsCollectionPage)} />
+        <Route exact path="/props-getter" component={LazyLoader(PropsGetterPage)} />
       </Switch>
   </Router>
   );

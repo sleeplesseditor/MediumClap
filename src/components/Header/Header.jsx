@@ -91,6 +91,13 @@ export default function Header() {
           >
             Props Collection Page
           </Link>
+          <Link 
+            to={"/props-getter"}
+            style={{ textDecoration: 'none' }}
+            onClick={toggleNav}
+          >
+            Props Getter Page
+          </Link>
         </nav>
       </CSSTransition>
       <button onClick={toggleNav} className="header-button">
