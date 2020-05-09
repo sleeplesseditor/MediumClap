@@ -20,7 +20,9 @@ const StylesPropPage = () => {
         </div>
       </div>
       <div className="clap-message">
-        <p>Inspect the <a className="clap-message-link" href="https://github.com/sleeplesseditor/MediumClap">code</a> to see how each version of the component works!</p>
+        <p>
+          Inspect the <a className="clap-message-link" href="https://github.com/sleeplesseditor/MediumClap/blob/master/src/components/MediumClap/StylesPropClap.jsx">code</a> to see how each version of the component works!
+        </p>
       </div>
     </React.Fragment>
   )

@@ -98,6 +98,13 @@ export default function Header() {
           >
             Props Getter Page
           </Link>
+          <Link 
+            to={"/state-initializer"}
+            style={{ textDecoration: 'none' }}
+            onClick={toggleNav}
+          >
+            State Initializer Page
+          </Link>
         </nav>
       </CSSTransition>
       <button onClick={toggleNav} className="header-button">

@@ -1,12 +1,12 @@
 import React from 'react';
 import '../MediumClapPage.scss';
 import DefaultClap from '../../components/MediumClap/DefaultClap';
-import CustomHooksClap from '../../components/MediumClap/CustomHooksClap';
+import StateInitializerClap from '../../components/MediumClap/StateInitializerClap';
 
-const CustomHooksPage = () => {
+const StateInitializerPage = () => {
   return (
     <React.Fragment>
-      <h1 className="clap-heading">Custom Hooks Page</h1>
+      <h1 className="clap-heading">State Initializer Page</h1>
       <div className="clap-container">
         <div className="clap-container-columns">
           <div className="clap-container-card">
@@ -15,17 +15,17 @@ const CustomHooksPage = () => {
           </div>
           <div className="clap-container-card">
             <h1 className="clap-container-card-heading-after">After</h1>
-            <CustomHooksClap />
+            <StateInitializerClap />
           </div>
         </div>
       </div>
       <div className="clap-message">
         <p>
-          Inspect the <a className="clap-message-link" href="https://github.com/sleeplesseditor/MediumClap/blob/master/src/components/MediumClap/CustomHooksClap.jsx">code</a> to see how each version of the component works!
+          Inspect the <a className="clap-message-link" href="https://github.com/sleeplesseditor/MediumClap/blob/master/src/components/MediumClap/StateInitializerClap.jsx">code</a> to see how each version of the component works!
         </p>
       </div>
     </React.Fragment>
   )
 }
 
-export default CustomHooksPage;
+export default StateInitializerPage;
