@@ -105,6 +105,13 @@ export default function Header() {
           >
             State Initializer Page
           </Link>
+          <Link 
+            to={"/state-reducer"}
+            style={{ textDecoration: 'none' }}
+            onClick={toggleNav}
+          >
+            State Reducer Page
+          </Link>
         </nav>
       </CSSTransition>
       <button onClick={toggleNav} className="header-button">
